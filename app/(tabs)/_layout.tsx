@@ -7,7 +7,7 @@ import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme(); 
 
   return (
     <Tabs
@@ -24,10 +24,31 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="notebook"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Notebook',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="book.fill" color={color} />, 
+        }}
+      />
+      <Tabs.Screen
+        name="assistant"
+        options={{
+          title: 'Assistant',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="foodLog"
+        options={{
+          title: 'Food Log',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="book.circle" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="guides"
+        options={{
+          title: 'Guides',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="wrench" color={color} />,
         }}
       />
     </Tabs>
