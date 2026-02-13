@@ -1,11 +1,14 @@
+import { FoodItem } from "@/src/models/FoodItem";
 import { useQuery, useRealm } from "@realm/react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { FoodItem } from "../../src/models/FoodItem";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Realm } from "realm";
+import { MapMarker } from "../../src/models/MapMarker";
 
 export default function Index() {
   const realm = useRealm();
-  const foodItems = useQuery(FoodItem);
+  const foodItem = useQuery(FoodItem);
+  const markerItems = useQuery(MapMarker);
 
   const addTestFood = () => {
     realm.write(() => {
@@ -22,13 +25,13 @@ export default function Index() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Riven Data Core</Text>
-      <Text style={styles.subtitle}>DB Items: {foodItems.length}</Text>
+    <SafeAreaView className="flex-1 justify-center items-center">
+      <Text className=" ">Riven Data Core</Text>
+      <Text style={styles.subtitle}>DB Items: {foodItem.length}</Text>
       <TouchableOpacity style={styles.button} onPress={addTestFood}>
         <Text style={styles.buttonText}>Add Food Item</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -51,6 +54,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#2ECC71",
     paddingVertical: 15,
+    paddingHorizontal: 5, 
     borderRadius: 10,
   },
   buttonText: {

@@ -1,5 +1,4 @@
 import { Realm } from "@realm/react";
-import { ObjectSchema } from "realm";
 
 //1. Realm Schema Definition
 export class FoodItem extends Realm.Object {
@@ -11,7 +10,7 @@ export class FoodItem extends Realm.Object {
   isConsumed!: boolean;
   isSynced!: boolean;
 
-  static schema: ObjectSchema = {
+  static schema: Realm.ObjectSchema = {
     name: "FoodItem",
     primaryKey: "_id",
     properties: {
