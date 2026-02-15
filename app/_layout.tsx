@@ -13,6 +13,12 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useUser } from "../hooks/useUser";
+import Mapbox from "@rnmapbox/maps";
+
+Mapbox.setAccessToken(
+  "pk.eyJ1IjoidGlsZmZ0YW1iIiwiYSI6ImNtbGxlcnF1dTA3cjczbG9uZmpzNGRrbm4ifQ.a9DYaLEveXySlnS0xvp9YA",
+);
+Mapbox.setTelemetryEnabled(false);
 
 export const unstable_settings = {
   anchor: "(tabs)",
