@@ -1,23 +1,26 @@
-import { RealmProvider } from "@realm/react";
-import { Stack } from "expo-router";
-import { FoodItem } from "../src/models/FoodItem";
-import { GuideArticleSchema } from "../src/models/GuideArticle";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { MapMarker } from "@/src/models/MapMarker";
 import { Messages } from "@/src/models/Messages";
 import { User } from "@/src/models/User";
-import "./globals.css"
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
-import { useUser } from "../hooks/useUser";
+import { RealmProvider } from "@realm/react";
 import Mapbox from "@rnmapbox/maps";
+import { Stack } from "expo-router";
+import { useUser } from "../hooks/useUser";
+import { FoodItem } from "../src/models/FoodItem";
+import { GuideArticleSchema } from "../src/models/GuideArticle";
+import "./globals.css";
 
-Mapbox.setAccessToken(
-  "pk.eyJ1IjoidGlsZmZ0YW1iIiwiYSI6ImNtbGxlcnF1dTA3cjczbG9uZmpzNGRrbm4ifQ.a9DYaLEveXySlnS0xvp9YA",
-);
+const mapboxToken = process.env.EXPO_PUBLIC_MAPBOX_ACCESS_TOKEN;
+
+if (mapboxToken) {
+  Mapbox.setAccessToken(mapboxToken);
+}
+
 Mapbox.setTelemetryEnabled(false);
 
 export const unstable_settings = {
